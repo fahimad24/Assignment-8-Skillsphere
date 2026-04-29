@@ -3,6 +3,8 @@
 import { useState } from "react";
 import Link from "next/link";
 import { cn } from "@heroui/react"; // or your cn utility
+import { useAuth } from "@/context/AuthProvider";
+import Image from "next/image";
 
 const maxWidthClasses = {
   sm: "max-w-[640px]",
@@ -23,6 +25,7 @@ export function Navbar({
 }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const { session, loading } = useAuth(); // Get the session and loading state from AuthContext
   return (
     <nav
       className={cn(
@@ -85,10 +88,27 @@ export function Navbar({
             </li>
           ))}
         </ul>
-        {rightContent && (
+        {loading ? (
           <div className="hidden items-center gap-4 md:flex">
-            {rightContent}
+            <span>Loading...</span>
           </div>
+        ) : session ? (
+          <div className="hidden items-center gap-4 md:flex">
+            <div className="w-8 h-8 rounded-full overflow-hidden relative">
+              <Image
+                src={session?.image}
+                alt="User avatar"
+                fill
+                loading="eager"
+              />
+            </div>
+          </div>
+        ) : (
+          rightContent && (
+            <div className="hidden items-center gap-4 md:flex">
+              {rightContent}
+            </div>
+          )
         )}
       </header>
       {isMenuOpen && (
