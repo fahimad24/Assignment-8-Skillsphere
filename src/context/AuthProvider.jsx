@@ -7,32 +7,18 @@ import { authClient } from "@/lib/auth-client";
 export const useAuth = () => useContext(AuthContext);
 
 const AuthProvider = ({ children }) => {
-  const [session, setSession] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const userData = authClient.useSession();
+  const session = userData.data?.user;
 
-  useEffect(() => {
-    let isMounted = true;
-
-    const loadSession = async () => {
-      setLoading(true);
-      const { data } = await authClient.getSession();
-      if (isMounted) {
-        setSession(data.user ?? null);
-      }
-      setLoading(false);
-    };
-
-    loadSession();
-
-    return () => {
-      isMounted = false;
-    };
-  }, []);
-
-  console.log("Current session:", session);
+  //   LogOut session
+  const logOut = async () => {
+    await authClient.signOut();
+  };
 
   return (
-    <AuthContext.Provider value={{ session, loading }}>
+    <AuthContext.Provider
+      value={{ session, loading: userData?.isPending, logOut }}
+    >
       {children}
     </AuthContext.Provider>
   );

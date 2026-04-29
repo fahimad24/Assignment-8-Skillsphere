@@ -15,7 +15,7 @@ import {
 import { authClient } from "@/lib/auth-client";
 
 export default function Login() {
-  const [isVisible, setIsVisible] = useState(true);
+  const [isVisible, setIsVisible] = useState(false);
 
   const onSubmit = async (e) => {
     e.preventDefault();

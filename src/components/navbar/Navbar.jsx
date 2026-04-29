@@ -1,10 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { use, useState } from "react";
 import Link from "next/link";
-import { cn } from "@heroui/react"; // or your cn utility
+import { Button, cn } from "@heroui/react"; // or your cn utility
 import { useAuth } from "@/context/AuthProvider";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 const maxWidthClasses = {
   sm: "max-w-[640px]",
@@ -15,17 +16,32 @@ const maxWidthClasses = {
   full: "max-w-full",
 };
 
+const rightContent = (
+  <>
+    <Link href="/login">
+      <button className="py-1.5 px-4 rounded-full bg-mauve-200 font-medium">
+        Login
+      </button>
+    </Link>
+    <Link href="/sign-up">
+      <button className="py-1.5 px-4 rounded-full gradient-bg-2 text-white font-medium">
+        Sign Up
+      </button>
+    </Link>
+  </>
+);
+
 export function Navbar({
   brand,
   items,
-  rightContent,
   className,
   maxWidth = "xl",
   position = "sticky",
 }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { session, loading, logOut } = useAuth();
+  const pathname = usePathname();
 
-  const { session, loading } = useAuth(); // Get the session and loading state from AuthContext
   return (
     <nav
       className={cn(
@@ -80,7 +96,7 @@ export function Navbar({
             <li key={item.href}>
               <Link
                 href={item.href}
-                className={"font-medium text-lg hover:text-light-orange"}
+                className={`font-medium text-md hover:text-light-orange ${pathname === item.href ? "text-light-orange border-b-2 pb-2" : ""}`}
                 aria-current={item.isActive ? "page" : undefined}
               >
                 {item.label}
@@ -88,27 +104,30 @@ export function Navbar({
             </li>
           ))}
         </ul>
-        {loading ? (
-          <div className="hidden items-center gap-4 md:flex">
-            <span>Loading...</span>
-          </div>
-        ) : session ? (
+        {session && (
           <div className="hidden items-center gap-4 md:flex">
             <div className="w-8 h-8 rounded-full overflow-hidden relative">
               <Image
                 src={session?.image}
                 alt="User avatar"
-                fill
+                width={32}
+                height={32}
+                className="object-cover"
                 loading="eager"
               />
             </div>
-          </div>
-        ) : (
-          rightContent && (
-            <div className="hidden items-center gap-4 md:flex">
-              {rightContent}
+            <div>
+              <Button variant="danger" onClick={logOut}>
+                LogOut
+              </Button>
             </div>
-          )
+          </div>
+        )}
+
+        {!session && rightContent && (
+          <div className="hidden items-center gap-4 md:flex">
+            {rightContent}
+          </div>
         )}
       </header>
       {isMenuOpen && (

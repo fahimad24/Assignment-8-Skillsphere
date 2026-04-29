@@ -46,16 +46,7 @@ export default function RootLayout({ children }) {
                 { label: "Courses", href: "/courses" },
                 { label: "Contact", href: "/contact" },
               ]}
-              rightContent={
-                <>
-                  <Link href="/login">
-                    <Button variant="ghost">Login</Button>
-                  </Link>
-                  <Link href="/sign-up">
-                    <Button className={"gradient-bg-2"}>Sign Up</Button>
-                  </Link>
-                </>
-              }
+
             />
           </header>
           {children}
