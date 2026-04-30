@@ -14,7 +14,7 @@
     },
     {
       "id": 2,
-      "popular": false,
+      "popular": true,
       "title": "The Web Developer Bootcamp",
       "instructor": "Colt Steele",
       "duration": "70 hours",
@@ -50,8 +50,8 @@
     },
     {
       "id": 5,
-      "popular": true,
-      "title": "Meta Front-End Developer Professional Certificate",
+      "popular": false,
+      "title": "Meta Frotruent-End Developer Professional Certificate",
       "instructor": "Meta",
       "duration": "4-6 months",
       "rating": 4.7,

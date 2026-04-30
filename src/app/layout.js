@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Button, Toast } from "@heroui/react";
 import { Navbar } from "@/components/navbar/Navbar";
 import AuthProvider from "@/context/AuthProvider";
+import Footer from "@/components/footer/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -51,6 +52,7 @@ export default function RootLayout({ children }) {
             />
           </header>
           {children}
+          <Footer />
         </AuthProvider>
 
       </body>
