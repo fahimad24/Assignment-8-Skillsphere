@@ -19,12 +19,12 @@ const maxWidthClasses = {
 const rightContent = (
   <>
     <Link href="/login">
-      <button className="py-1.5 px-4 rounded-full bg-mauve-200 font-medium">
+      <button className="py-1.5 px-4 rounded-full bg-mauve-200 font-medium cursor-pointer hover:bg-mauve-300 transition-colors">
         Login
       </button>
     </Link>
     <Link href="/sign-up">
-      <button className="py-1.5 px-4 rounded-full gradient-bg-2 text-white font-medium">
+      <button className="py-1.5 px-4 rounded-full gradient-bg-2 text-white font-medium cursor-pointer hover:opacity-90 transition-opacity">
         Sign Up
       </button>
     </Link>
@@ -106,18 +106,26 @@ export function Navbar({
         </ul>
         {session && (
           <div className="hidden items-center gap-4 md:flex">
-            <div className="w-8 h-8 rounded-full overflow-hidden relative">
+            <Link
+              href="/profile"
+              className="w-10 h-10 rounded-full overflow-hidden relative border-2 border-light-orange"
+              title="Profile"
+            >
               <Image
                 src={session?.image}
                 alt="User avatar"
-                width={32}
-                height={32}
+                width={40}
+                height={40}
                 className="object-cover"
                 loading="eager"
               />
-            </div>
+            </Link>
             <div>
-              <Button variant="danger" onClick={logOut}>
+              <Button
+                variant="danger"
+                onClick={logOut}
+                className="cursor-pointer hover:opacity-90 transition-opacity"
+              >
                 LogOut
               </Button>
             </div>

@@ -27,7 +27,7 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="">
         <AuthProvider>
           <Toast.Provider /><header>
             <Navbar
@@ -44,6 +44,7 @@ export default function RootLayout({ children }) {
               items={[
                 { label: "Home", href: "/" },
                 { label: "Courses", href: "/courses" },
+                { label: "My Profile", href: "/profile" },
                 { label: "Contact", href: "/contact" },
               ]}
 

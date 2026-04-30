@@ -1,5 +1,5 @@
 const Authlayout = ({ children }) => {
-  return <main>{children}</main>;
+  return <main className="max-w-325 mx-auto">{children}</main>;
 };
 
 export default Authlayout;
