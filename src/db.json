@@ -1,0 +1,112 @@
+{
+  "courses": [
+    {
+      "id": 1,
+      "popular": true,
+      "title": "The Complete Full-Stack Web Development Bootcamp",
+      "instructor": "Dr. Angela Yu",
+      "duration": "62 hours",
+      "rating": 4.7,
+      "level": "Beginner",
+      "description": "Learn HTML, CSS, JavaScript, Node.js, React, and databases to become a full-stack developer.",
+      "image": "https://img-c.udemycdn.com/course/750x422/1565838_e54e_18.jpg",
+      "category": "Development"
+    },
+    {
+      "id": 2,
+      "popular": false,
+      "title": "The Web Developer Bootcamp",
+      "instructor": "Colt Steele",
+      "duration": "70 hours",
+      "rating": 4.7,
+      "level": "Beginner",
+      "description": "Complete web development course with projects covering HTML, CSS, JavaScript, React, Node.js, and MongoDB.",
+      "image": "https://img-c.udemycdn.com/course/750x422/625204_436a_3.jpg",
+      "category": "Development"
+    },
+    {
+      "id": 3,
+      "popular": false,
+      "title": "React - The Complete Guide",
+      "instructor": "Maximilian Schwarzmüller",
+      "duration": "40 hours",
+      "rating": 4.6,
+      "level": "Intermediate",
+      "description": "Master React, Redux, Next.js, and build real-world applications with modern tools.",
+      "image": "https://img-c.udemycdn.com/course/750x422/1362070_b9a1_2.jpg",
+      "category": "Development"
+    },
+    {
+      "id": 4,
+      "popular": true,
+      "title": "The Complete JavaScript Course",
+      "instructor": "Jonas Schmedtmann",
+      "duration": "69 hours",
+      "rating": 4.8,
+      "level": "Beginner",
+      "description": "Deep dive into JavaScript including ES6+, async programming, and real-world projects.",
+      "image": "https://img-c.udemycdn.com/course/750x422/851712_fc61_6.jpg",
+      "category": "Development"
+    },
+    {
+      "id": 5,
+      "popular": true,
+      "title": "Meta Front-End Developer Professional Certificate",
+      "instructor": "Meta",
+      "duration": "4-6 months",
+      "rating": 4.7,
+      "level": "Beginner",
+      "description": "Learn front-end development with HTML, CSS, JavaScript, React, and UI/UX fundamentals.",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/React.svg/960px-React.svg.png",
+      "category": "Development"
+    },
+    {
+      "id": 6,
+      "popular": false,
+      "title": "IBM Full Stack Software Developer Professional Certificate",
+      "instructor": "IBM",
+      "duration": "3-6 months",
+      "rating": 4.6,
+      "level": "Beginner",
+      "description": "Learn cloud-native development, React, Node.js, APIs, and deployment pipelines.",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/960px-Node.js_logo.svg.png?_=20170401104355",
+      "category": "Development"
+    },
+    {
+      "id": 7,
+      "popular": false,
+      "title": "Introduction to HTML, CSS, and JavaScript",
+      "instructor": "IBM",
+      "duration": "1-4 weeks",
+      "rating": 4.4,
+      "level": "Beginner",
+      "description": "Learn the fundamentals of web development including responsive design and APIs.",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Progressive_enhancement_web_design_pyramid_%28HTML%2C_CSS%2C_JS%29.svg/500px-Progressive_enhancement_web_design_pyramid_%28HTML%2C_CSS%2C_JS%29.svg.png",
+      "category": "Development"
+    },
+    {
+      "id": 8,
+      "popular": false,
+      "title": "Python for Data Science, AI & Development",
+      "instructor": "IBM",
+      "duration": "1-3 months",
+      "rating": 4.6,
+      "level": "Beginner",
+      "description": "Learn Python programming, data analysis, APIs, and automation for real-world use.",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/120px-Python-logo-notext.svg.png",
+      "category": "Data Science"
+    },
+    {
+      "id": 9,
+      "popular": false,
+      "title": "Machine Learning A-Z: AI, Python & R",
+      "instructor": "Kirill Eremenko",
+      "duration": "44 hours",
+      "rating": 4.5,
+      "level": "Intermediate",
+      "description": "Comprehensive ML course covering regression, classification, clustering, and deep learning.",
+      "image": "https://img-c.udemycdn.com/course/750x422/950390_270f_3.jpg",
+      "category": "Data Science"
+    }
+  ]
+}

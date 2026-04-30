@@ -1,9 +1,12 @@
-import Image from "next/image";
+import Hero from "@/components/hero/Hero";
+import Popular from "@/components/Popular";
+
 
 export default function Home() {
   return (
-    <main className="max-w-325 mx-auto">
-      <h1 className="text-3xl font-bold">Hello, World!</h1>
+    <main className="bg-light-orange/5">
+      <Hero />
+      <Popular />
     </main>
   );
 }
