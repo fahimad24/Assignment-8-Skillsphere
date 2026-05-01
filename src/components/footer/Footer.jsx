@@ -42,7 +42,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <nav className="md:col-span-2 flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
+          <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
             <div>
               <h4 className="text-sm font-semibold text-slate-700">Explore</h4>
               <ul className="mt-3 space-y-2 text-sm text-slate-600">
@@ -63,40 +63,36 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
-
-            <div>
-              <h4 className="text-sm font-semibold text-slate-700">
-                Resources
-              </h4>
-              <ul className="mt-3 space-y-2 text-sm text-slate-600">
-                <li>
-                  <Link href="/" className="hover:text-light-orange">
-                    Blog
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/" className="hover:text-light-orange">
-                    Help
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/" className="hover:text-light-orange">
-                    Privacy
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </nav>
+          </div>
+          <div>
+            <h4 className="text-sm font-semibold text-slate-700">Resources</h4>
+            <ul className="mt-3 space-y-2 text-sm text-slate-600">
+              <li>
+                <Link href="/" className="hover:text-light-orange">
+                  Blog
+                </Link>
+              </li>
+              <li>
+                <Link href="/" className="hover:text-light-orange">
+                  Help
+                </Link>
+              </li>
+              <li>
+                <Link href="/" className="hover:text-light-orange">
+                  Privacy
+                </Link>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
 
       <div className="border-t border-slate-200 bg-white/80">
         <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col items-center justify-between gap-3 sm:flex-row">
+          <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
             <p className="text-sm text-slate-600">
               © {new Date().getFullYear()} Skillsphere. All rights reserved.
             </p>
-            <p className="text-sm text-slate-600">Made with ❤️</p>
           </div>
         </div>
       </div>

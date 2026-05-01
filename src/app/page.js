@@ -1,6 +1,7 @@
 import Hero from "@/components/hero/Hero";
 import LearningTip from "@/components/LearningTip";
 import Popular from "@/components/Popular";
+import TopInstructors from "@/components/Top-Instructors/TopInstructors";
 
 
 export default function Home() {
@@ -9,6 +10,7 @@ export default function Home() {
       <Hero />
       <Popular />
       <LearningTip />
+      <TopInstructors />
     </main>
   );
 }
