@@ -14,9 +14,11 @@ import {
 } from "@heroui/react";
 import { authClient } from "@/lib/auth-client";
 import Link from "next/link";
+import { useAuth } from "@/context/AuthProvider";
 
 export default function SignUp() {
   const [isVisible, setIsVisible] = useState(false);
+  const { logOut } = useAuth();
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -29,13 +31,17 @@ export default function SignUp() {
     });
 
     // sign up logic here, e.g. send data to API
-    const { error } = await authClient.signUp.email({
+    const { data, error } = await authClient.signUp.email({
       name: dataform.name,
       email: dataform.email,
       password: dataform.password,
       image: dataform.photoURL,
       callbackURL: "/",
     });
+
+    if (data) {
+      logOut(); // Ensure any existing session is cleared
+    }
 
     if (error) {
       toast.danger(error.message);
