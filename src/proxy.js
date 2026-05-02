@@ -1,20 +1,27 @@
 import { NextResponse } from 'next/server'
+import { auth } from './lib/auth';
+import { headers } from 'next/headers';
 
 // This function can be marked `async` if using `await` inside
-export function proxy(request) {
-    const token = request.cookies.get('__Secure-better-auth.session_token')?.value;
+export async function proxy(request) {
+
+    const session = await auth.api.getSession({
+        headers: await headers(),
+    });
+
+
     const { pathname } = request.nextUrl;
-    console.log('Token in proxy:', token);
+    console.log('Session in proxy:', session);
 
     if (pathname.startsWith('/profile') || pathname.startsWith('/courses/')) {
-        if (!token) {
+        if (!session) {
             return NextResponse.redirect(new URL('/login', request.url));
         }
     }
 
 
     if (pathname === '/login' || pathname === '/sign-up') {
-        if (token) {
+        if (session) {
             return NextResponse.redirect(new URL('/', request.url));
         }
     }
