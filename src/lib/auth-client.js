@@ -1,7 +1,7 @@
 import { createAuthClient } from "better-auth/react"
 export const authClient = createAuthClient({
     /** The base URL of the server (optional if you're using the same domain) */
-    baseURL: process.env.BETTER_AUTH_URL || "http://localhost:3000",
+    baseURL: process.env.NEXT_PUBLIC_URL,
 })
 
 export const signIn = async () => {
@@ -9,3 +9,5 @@ export const signIn = async () => {
         provider: "google",
     });
 };
+
+console.log("Auth Client Initialized:", process.env.NEXT_PUBLIC_URL);

@@ -6,7 +6,6 @@ const client = new MongoClient(process.env.DATABASE_URL);
 const db = client.db("Skillsphere");
 
 export const auth = betterAuth({
-    baseURL: process.env.BETTER_AUTH_URL,
     emailAndPassword: {
         enabled: true,
     },
