@@ -23,5 +23,5 @@ export function proxy(request) {
 }
 
 export const config = {
-    matcher: ['/courses/:path*', '/profile', '/login', '/sign-up'],
+    matcher: ['/courses/:path*', '/profile', '/login', '/sign-up', '/profile/update'],
 }
