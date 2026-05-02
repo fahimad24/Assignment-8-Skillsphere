@@ -6,7 +6,7 @@ export function proxy(request) {
     const { pathname } = request.nextUrl;
     console.log('Token in proxy:', token);
 
-    if (pathname === '/profile' || pathname.startsWith('/courses/')) {
+    if (pathname.startsWith('/profile') || pathname.startsWith('/courses/')) {
         if (!token) {
             return NextResponse.redirect(new URL('/login', request.url));
         }
