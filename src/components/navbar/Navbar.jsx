@@ -1,11 +1,11 @@
 "use client";
 
-import { use, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
-import { Button, cn } from "@heroui/react"; // or your cn utility
-import { useAuth } from "@/context/AuthProvider";
+import { Button, cn } from "@heroui/react"; // o;
 import Image from "next/image";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { authClient } from "@/lib/auth-client";
 
 const maxWidthClasses = {
   sm: "max-w-[640px]",
@@ -39,8 +39,20 @@ export function Navbar({
   position = "sticky",
 }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { session, loading, logOut } = useAuth();
+  const router = useRouter();
   const pathname = usePathname();
+  const userData = authClient.useSession();
+  const session = userData.data?.user;
+
+  const logOut = async () => {
+    await authClient.signOut({
+      fetchOptions: {
+        onSuccess: () => {
+          router.push("/"); // redirect to login page
+        },
+      },
+    });
+  };
 
   return (
     <nav

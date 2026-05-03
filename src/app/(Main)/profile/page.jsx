@@ -1,14 +1,32 @@
 "use client";
 
-import { useAuth } from "@/context/AuthProvider";
-import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { authClient } from "@/lib/auth-client";
+import { useRouter } from "next/navigation";
 
 const MyProfile = () => {
-  const { session, loading, logOut } = useAuth();
+  const router = useRouter();
+  const userData = authClient.useSession();
+  const session = userData.data?.user;
+  const loading = userData.isPending;
 
-  if (loading) return <div className="p-6">Loading profile…</div>;
+  const logOut = async () => {
+    await authClient.signOut({
+      fetchOptions: {
+        onSuccess: () => {
+          router.push("/"); // redirect to login page
+        },
+      },
+    });
+  };
+
+  if (loading)
+    return (
+      <div className="p-6 h-screen flex justify-center items-center">
+        Loading profile…
+      </div>
+    );
 
   if (!session)
     return (

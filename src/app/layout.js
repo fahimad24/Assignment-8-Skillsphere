@@ -2,10 +2,9 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
 import Link from "next/link";
-import { Button, Toast } from "@heroui/react";
 import { Navbar } from "@/components/navbar/Navbar";
-import AuthProvider from "@/context/AuthProvider";
 import Footer from "@/components/footer/Footer";
+import { Toast } from "@heroui/react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,31 +28,30 @@ export default function RootLayout({ children }) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="">
-        <AuthProvider>
-          <Toast.Provider /><header>
-            <Navbar
-              brand={
-                <>
-                  <Link
-                    href="/"
-                    className="font-bold text-4xl gradient-bg-2 text-transparent bg-clip-text!"
-                  >
-                    Skillsphere
-                  </Link>
-                </>
-              }
-              items={[
-                { label: "Home", href: "/" },
-                { label: "Courses", href: "/courses" },
-                { label: "My Profile", href: "/profile" },
-                { label: "Contact", href: "/contact" },
-              ]}
+        <Toast.Provider />
+        <header>
+          <Navbar
+            brand={
+              <>
+                <Link
+                  href="/"
+                  className="font-bold text-4xl gradient-bg-2 text-transparent bg-clip-text!"
+                >
+                  Skillsphere
+                </Link>
+              </>
+            }
+            items={[
+              { label: "Home", href: "/" },
+              { label: "Courses", href: "/courses" },
+              { label: "My Profile", href: "/profile" },
+              { label: "Contact", href: "/contact" },
+            ]}
 
-            />
-          </header>
-          {children}
-          <Footer />
-        </AuthProvider>
+          />
+        </header>
+        {children}
+        <Footer />
 
       </body>
     </html>

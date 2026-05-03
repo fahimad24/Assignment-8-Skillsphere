@@ -16,6 +16,8 @@ export async function proxy(request) {
     if (pathname.startsWith('/profile') || pathname.startsWith('/courses/')) {
         if (!session) {
             return NextResponse.redirect(new URL('/login', request.url));
+        } else {
+            return NextResponse.next();
         }
     }
 
@@ -23,12 +25,16 @@ export async function proxy(request) {
     if (pathname === '/login' || pathname === '/sign-up') {
         if (session) {
             return NextResponse.redirect(new URL('/', request.url));
+        } else {
+            return NextResponse.next();
         }
     }
+
+    return NextResponse.next();
 
 
 }
 
 export const config = {
-    matcher: ['/courses/:path*', '/profile', '/login', '/sign-up', '/profile/update'],
+    matcher: ['/courses/:path*', '/profile', '/profile/update', '/login', '/sign-up'],
 }

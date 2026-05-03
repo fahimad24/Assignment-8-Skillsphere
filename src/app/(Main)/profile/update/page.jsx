@@ -1,11 +1,12 @@
 "use client";
 
-import React, { useState } from "react";
-import { useAuth } from "@/context/AuthProvider";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { authClient } from "@/lib/auth-client";
 
 const EditProfile = () => {
-  const { session } = useAuth();
+  const userData = authClient.useSession();
+  const session = userData.data?.user;
   const router = useRouter();
 
   const [name, setName] = useState(session?.name || "");

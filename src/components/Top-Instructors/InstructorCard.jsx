@@ -7,6 +7,7 @@ const InstructorCard = ({ instructor }) => (
         src={instructor.image}
         alt={instructor.name}
         fill
+        sizes="200px"
         className="object-cover"
       />
     </div>
