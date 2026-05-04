@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const LearningTip = () => {
   const studyTechniques = [
     "Use active recall instead of passive rereading.",
@@ -41,7 +43,26 @@ const LearningTip = () => {
               ))}
             </ul>
           </article>
-
+          <div className="hidden md:block w-full h-64 relative rounded-3xl overflow-hidden">
+            <Image
+              src="/study_tips.jpg"
+              fill
+              sizes="400px"
+              loading="eager"
+              className="object-cover rounded-3xl"
+              alt="Learning Tips"
+            />
+          </div>
+          <div className="hidden md:block w-full h-64 relative rounded-3xl overflow-hidden">
+            <Image
+              src="/time.jpg"
+              fill
+              sizes="400px"
+              loading="eager"
+              className="object-cover"
+              alt="Learning Tips"
+            />
+          </div>
           <article className="rounded-3xl border border-slate-200 bg-light-orange/5 p-6">
             <h3 className="text-xl font-semibold text-slate-950">
               Time management tips
