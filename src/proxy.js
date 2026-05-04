@@ -8,15 +8,7 @@ export async function proxy(request) {
         headers: request.headers,
     });
 
-    const { pathname } = request.nextUrl;
 
-    if (pathname.startsWith('/login') || pathname.startsWith('/sign-up')) {
-        if (!session) {
-            return NextResponse.next();
-        }
-
-        return NextResponse.redirect(new URL('/', request.url));
-    }
 
     if (session) {
         return NextResponse.next();
@@ -28,5 +20,5 @@ export async function proxy(request) {
 }
 
 export const config = {
-    matcher: ['/courses/:path+', '/profile', '/profile/update', '/login', '/sign-up'],
+    matcher: ['/courses/:path+', '/profile', '/profile/update',],
 }
