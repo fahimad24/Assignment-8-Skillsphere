@@ -8,25 +8,25 @@ export async function proxy(request) {
         headers: request.headers,
     });
 
-
     const { pathname } = request.nextUrl;
-    console.log('pathname', pathname)
-    console.log('Session in proxy:', session);
 
-    if (pathname.startsWith('/profile') || pathname.startsWith('/courses/')) {
+    if (pathname.startsWith('/login') || pathname.startsWith('/sign-up')) {
         if (!session) {
-            return NextResponse.redirect(new URL('/login', request.url));
-        } else {
             return NextResponse.next();
         }
+
+        return NextResponse.redirect(new URL('/', request.url));
     }
 
+    if (session) {
+        return NextResponse.next();
+    }
 
-    return NextResponse.next();
+    return NextResponse.redirect(new URL('/login', request.url));
 
 
 }
 
 export const config = {
-    matcher: ['/courses/:path+', '/profile', '/profile/update'],
+    matcher: ['/courses/:path+', '/profile', '/profile/update', '/login', '/sign-up'],
 }
