@@ -3,10 +3,11 @@
 
 @theme {
   --color-light-orange: #ff7e5f;
+  --color-teal: rgb(84, 0, 238);
 }
 
 .gradient-bg {
-  background: linear-gradient(90deg, rgb(84, 0, 238), #feb47b);
+  background: linear-gradient(90deg, var(--color-teal), #feb47b);
 }
 
 .gradient-bg-2 {

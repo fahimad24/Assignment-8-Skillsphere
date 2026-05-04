@@ -51,6 +51,8 @@ const MyProfile = () => {
             src={session?.image || "/placeholder-avatar.png"}
             alt={session?.name || "User avatar"}
             fill
+            sizes="150px"
+            loading="eager"
             className="object-cover w-full h-full"
           />
         </div>
@@ -72,13 +74,13 @@ const MyProfile = () => {
             </div>
             <div className="flex items-center gap-2">
               <Link href="/profile/update">
-                <button className="py-1.5 px-4 rounded-full bg-mauve-200 font-medium hover:opacity-90 transition-opacity">
+                <button className="py-1.5 px-4 rounded-full bg-mauve-200 font-medium hover:opacity-90 transition-opacity cursor-pointer">
                   Edit profile
                 </button>
               </Link>
               <button
                 onClick={logOut}
-                className="py-1.5 px-4 rounded-full bg-red-500 text-white hover:opacity-90 transition-opacity"
+                className="py-1.5 px-4 rounded-full bg-red-500 text-white hover:opacity-90 transition-opacity cursor-pointer"
               >
                 Log out
               </button>

@@ -1,16 +1,16 @@
 import { NextResponse } from 'next/server'
 import { auth } from './lib/auth';
-import { headers } from 'next/headers';
 
 // This function can be marked `async` if using `await` inside
 export async function proxy(request) {
 
     const session = await auth.api.getSession({
-        headers: await headers(),
+        headers: request.headers,
     });
 
 
     const { pathname } = request.nextUrl;
+    console.log('pathname', pathname)
     console.log('Session in proxy:', session);
 
     if (pathname.startsWith('/profile') || pathname.startsWith('/courses/')) {
@@ -36,5 +36,5 @@ export async function proxy(request) {
 }
 
 export const config = {
-    matcher: ['/courses/:path*', '/profile', '/profile/update', '/login', '/sign-up'],
+    matcher: ['/courses/:path+', '/profile', '/profile/update', '/login', '/sign-up'],
 }

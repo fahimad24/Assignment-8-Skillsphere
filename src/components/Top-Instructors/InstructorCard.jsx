@@ -8,6 +8,7 @@ const InstructorCard = ({ instructor }) => (
         alt={instructor.name}
         fill
         sizes="200px"
+        loading="eager"
         className="object-cover"
       />
     </div>

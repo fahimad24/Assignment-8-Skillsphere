@@ -58,11 +58,14 @@ const CourseCard = ({ course }) => {
             <span className="rounded-full bg-slate-100 px-3 py-1 font-medium text-slate-700">
               {level}
             </span>
-            <span className="rounded-full bg-amber-50 px-3 py-1 font-semibold text-amber-700">
-              {rating.toFixed(1)} / 5
+            <span className="rounded-full bg-teal/20 px-3 py-1 font-semibold text-black">
+              ⭐ {rating.toFixed(1)} / 5
             </span>
           </div>
-          <div>
+          <div className="flex items-center justify-between">
+            <span className="text-2xl font-bold text-light-orange">
+              ${course.price.toFixed(2)}
+            </span>
             <Link
               href={`/courses/${course.id}`}
               className="inline-flex items-center gap-1 rounded-full gradient-bg-2 px-7 py-2 text-sm font-medium text-white shadow-sm transition-colors hover:shadow-md"

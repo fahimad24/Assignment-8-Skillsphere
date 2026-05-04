@@ -9,19 +9,36 @@ const EditProfile = () => {
   const session = userData.data?.user;
   const router = useRouter();
 
-  const [name, setName] = useState(session?.name || "");
-  const [image, setImage] = useState(session?.image || "");
   const [saving, setSaving] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const formData = new FormData(e.target);
+    const name = formData.get("name");
+    const image = formData.get("image");
+
+    if (!session) {
+      alert("You must be logged in to update your profile.");
+      return;
+    }
+
+    if (session?.name === name && session?.image === image) {
+      alert("No changes to save.");
+      return;
+    }
+
     setSaving(true);
-    // TODO: integrate with backend to persist updates.
-    // For now, simulate save and navigate back to profile.
-    setTimeout(() => {
-      setSaving(false);
-      router.push("/profile");
-    }, 700);
+    const { data, error } = await authClient.updateUser({
+      name,
+      image,
+    });
+    setSaving(false);
+    if (error) {
+      alert("Failed to update profile: " + error.message);
+      return;
+    }
+    console.log("Profile updated:", data);
+    router.push("/profile");
   };
 
   return (
@@ -32,8 +49,8 @@ const EditProfile = () => {
         <div>
           <label className="block text-sm font-medium mb-1">Name</label>
           <input
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            defaultValue={session?.name || ""}
+            name="name"
             className="w-full rounded-md border p-2"
             placeholder="Your name"
           />
@@ -44,8 +61,8 @@ const EditProfile = () => {
             Avatar image URL
           </label>
           <input
-            value={image}
-            onChange={(e) => setImage(e.target.value)}
+            defaultValue={session?.image || ""}
+            name="image"
             className="w-full rounded-md border p-2"
             placeholder="https://..."
           />
@@ -56,7 +73,7 @@ const EditProfile = () => {
             Email (read-only)
           </label>
           <input
-            value={session?.email || ""}
+            defaultValue={session?.email || ""}
             readOnly
             disabled={true}
             className="w-full rounded-md border p-2 bg-gray-50"
