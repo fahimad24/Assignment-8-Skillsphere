@@ -18,9 +18,9 @@ const Hero = () => {
           </span>
 
           <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
-            Welcome to{" "}
+            Learn from{" "}
             <span className="gradient-bg-2 text-transparent bg-clip-text!">
-              Skillsphere
+              Industry Experts
             </span>
           </h1>
 

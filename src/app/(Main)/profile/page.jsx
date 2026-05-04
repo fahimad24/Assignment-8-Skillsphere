@@ -45,7 +45,7 @@ const MyProfile = () => {
 
   return (
     <main className="p-8 max-w-3xl mx-auto">
-      <section className="flex items-center gap-6">
+      <section className="flex md:flex-row flex-col items-center gap-6">
         <div className="w-28 h-28 rounded-full overflow-hidden border-2 border-light-orange aspect-square relative">
           <Image
             src={session?.image || "/placeholder-avatar.png"}
@@ -67,7 +67,7 @@ const MyProfile = () => {
       <section className="mt-8">
         <h2 className="text-xl font-semibold mb-2">Account</h2>
         <div className="bg-card p-4 rounded-md border border-separator">
-          <div className="flex justify-between items-center">
+          <div className="flex flex-col md:flex-row gap-4 justify-between items-center">
             <div>
               <p className="font-medium">Email</p>
               <p className="text-sm text-muted-foreground">{session?.email}</p>

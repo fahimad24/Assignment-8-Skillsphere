@@ -6,10 +6,10 @@ import Link from "next/link";
 const Footer = () => {
   return (
     <footer className="bg-light-orange/5 border-t border-slate-200">
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 xl:px-0">
         <div className="grid gap-8 md:grid-cols-3">
           <div className="space-y-4">
-            <h3 className="text-4xl font-bold gradient-bg-2 text-transparent bg-clip-text!">
+            <h3 className="font-bold text-4xl gradient-bg-2 text-transparent bg-clip-text!">
               Skillsphere
             </h3>
             <p className="text-sm text-slate-700">
@@ -68,17 +68,17 @@ const Footer = () => {
             <ul className="mt-3 space-y-2 text-sm text-slate-600">
               <li>
                 <Link href="/" className="hover:text-light-orange">
-                  Blog
-                </Link>
-              </li>
-              <li>
-                <Link href="/" className="hover:text-light-orange">
                   Help
                 </Link>
               </li>
               <li>
                 <Link href="/" className="hover:text-light-orange">
-                  Privacy
+                  Terms and Conditions
+                </Link>
+              </li>
+              <li>
+                <Link href="/" className="hover:text-light-orange">
+                  Privacy Policy
                 </Link>
               </li>
             </ul>

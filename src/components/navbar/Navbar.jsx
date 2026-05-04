@@ -11,7 +11,7 @@ const maxWidthClasses = {
   sm: "max-w-[640px]",
   md: "max-w-[768px]",
   lg: "max-w-[1024px]",
-  xl: "max-w-[1300px]",
+  xl: "max-w-[1280px]",
   "2xl": "max-w-[1536px]",
   full: "max-w-full",
 };
@@ -65,9 +65,7 @@ export function Navbar({
     >
       <header
         className={cn(
-          "flex h-16 items-center justify-between px-6",
-          maxWidth !== "full" && maxWidthClasses[maxWidth],
-          "mx-auto",
+          "flex h-16 items-center justify-between px-6 lg:px-8 xl:px-0 max-w-7xl mx-auto",
         )}
       >
         <div className="flex items-center gap-4">
