@@ -16,8 +16,8 @@ const Details = async ({ params }) => {
   const aiGoals = course.goals || [];
 
   return (
-    <main className="bg-slate-50 px-4 py-16 sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-6xl space-y-10">
+    <main className="bg-light-orange/5 ">
+      <div className="mx-auto max-w-6xl space-y-10  py-16 px-6 lg:px-8 xl:px-0">
         {/* Main Course Content */}
         <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-start">
           <section className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-lg">
