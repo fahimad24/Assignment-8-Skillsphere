@@ -16,8 +16,8 @@ const CourseCard = ({ course }) => {
 
   return (
     <div className="group flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white/80 shadow-lg backdrop-blur transition-shadow hover:shadow-md">
-      <div className="relative">
-        <div className="relative aspect-video overflow-hidden bg-slate-100">
+      <div className="relative px-4 pt-4">
+        <div className="relative aspect-video overflow-hidden bg-slate-100 rounded-lg">
           <Image
             src={image}
             fill
@@ -27,7 +27,7 @@ const CourseCard = ({ course }) => {
             loading="eager"
           />
         </div>
-        <div className="absolute left-4 top-4 flex gap-2">
+        <div className="absolute left-6 top-7 flex gap-2">
           {popular && (
             <span className="rounded-full bg-light-orange px-3 py-1 text-xs font-semibold text-white shadow-lg shadow-emerald-500/30">
               Popular
