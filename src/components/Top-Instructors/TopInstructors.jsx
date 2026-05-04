@@ -29,9 +29,9 @@ const TopInstructors = () => {
     <section className="px-4 py-12 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <div className="mb-8 text-center">
-          <h3 className="text-sm font-semibold uppercase tracking-wide text-light-orange">
-            Top instructors
-          </h3>
+          <span className="inline-flex rounded-full border border-slate-200 gradient-bg-2 px-4 py-1 text-sm font-medium text-white shadow-sm backdrop-blur">
+            Top Instructors
+          </span>
           <h2 className="mt-2 text-3xl font-bold text-slate-900">
             Learn from the best
           </h2>
