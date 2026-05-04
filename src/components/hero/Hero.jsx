@@ -1,6 +1,10 @@
+import { authClient } from "@/lib/auth-client";
 import Link from "next/link";
 
 const Hero = () => {
+  const userData = authClient.useSession();
+  const session = userData.data?.user;
+
   return (
     <section className="flex relative">
       <video
@@ -30,7 +34,7 @@ const Hero = () => {
           </p>
 
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <Link href="/login">
+            <Link href={`${session ? "/courses" : "/login"}`}>
               <button className="rounded-full gradient-bg-2 px-6 py-3 text-sm font-semibold transition hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-light-orange/30 focus:ring-offset-2 focus:ring-offset-transparent text-white cursor-pointer">
                 Get Started
               </button>

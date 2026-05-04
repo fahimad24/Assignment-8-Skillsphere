@@ -8,8 +8,6 @@ export async function proxy(request) {
         headers: request.headers,
     });
 
-
-
     if (session) {
         return NextResponse.next();
     }
