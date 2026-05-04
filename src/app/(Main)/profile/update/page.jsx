@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { authClient } from "@/lib/auth-client";
+import { toast } from "@heroui/react";
 
 const EditProfile = () => {
   const userData = authClient.useSession();
@@ -18,26 +19,27 @@ const EditProfile = () => {
     const image = formData.get("image");
 
     if (!session) {
-      alert("You must be logged in to update your profile.");
+      toast.danger("You must be logged in to update your profile.");
       return;
     }
 
     if (session?.name === name && session?.image === image) {
-      alert("No changes to save.");
+      toast.info("No changes to save.");
       return;
     }
 
     setSaving(true);
-    const { data, error } = await authClient.updateUser({
+    const { error } = await authClient.updateUser({
       name,
       image,
     });
     setSaving(false);
     if (error) {
-      alert("Failed to update profile: " + error.message);
+      toast.danger("Failed to update profile: " + error.message);
       return;
+    } else {
+      toast.success("Profile updated successfully!");
     }
-    console.log("Profile updated:", data);
     router.push("/profile");
   };
 

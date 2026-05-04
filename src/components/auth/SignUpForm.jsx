@@ -48,14 +48,15 @@ export default function SignUpForm() {
       callbackURL: "/",
     });
 
-    if (data) {
-      logOut(); // Ensure any existing session is cleared
-    }
-
     if (error) {
       toast.danger(error.message);
     } else {
       toast.success("Sign up successful! Please check your email to verify.");
+    }
+
+    if (data) {
+      logOut();
+      router.push("/login");
     }
   };
 

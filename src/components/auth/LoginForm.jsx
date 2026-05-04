@@ -22,12 +22,10 @@ export default function LoginForm() {
     const formData = new FormData(e.currentTarget);
     const dataform = {};
 
-    // Convert FormData to plain object
     formData.forEach((value, key) => {
       dataform[key] = value.toString();
     });
 
-    // login logic here, e.g. send data to API
     const { error } = await authClient.signIn.email({
       email: dataform.email,
       password: dataform.password,
